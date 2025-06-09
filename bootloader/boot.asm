@@ -21,12 +21,11 @@ KERNEL_SEGMENT equ 0x1000
     ; Switches to 32 bit protected mode
     call switch_to_pm
 
-
 read_disk:
     mov bx, KERNEL_SEGMENT          
 
     mov ah, 2       ; Read sectors
-    mov al, 1       ; Number of sectors to read can store this in dh and make it a new asm file 
+    mov al, 2       ; Number of sectors to read 
     mov ch, 0       ; Cylinder number
     mov dh, 0       ; Head number
     mov cl, 2       ; Sector number  
@@ -38,15 +37,14 @@ read_disk:
     ret
 
 disk_error:
-    cli ; Disable interupts 
+    cli             ; Disable interupts 
 .halt:
-    hlt        ; halt cpu
-    jmp .halt  ; prevent further execution by running hlt infinitly 
+    hlt             ; halt cpu
+    jmp .halt       ; prevent further execution by running hlt infinitly 
 
 %include "bootloader/gdt.asm"
 %include "bootloader/switch_to_pm.asm"
 %include "bootloader/print_string_pm.asm"
-%include "bootloader/print_string.asm"
 
 [bits 32]
 

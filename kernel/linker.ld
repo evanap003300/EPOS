@@ -18,7 +18,9 @@ SECTIONS {
     }
 
     .bss : {
+            bss_start = .;
         *(COMMON)
-        *(.bss)  /* Uninitialized global/static variables */
+        *(.bss)
+        bss_end = .;
     }
 }
