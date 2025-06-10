@@ -4,10 +4,10 @@ bin/boot.bin: bootloader/boot.asm
 	nasm -f bin bootloader/boot.asm -o bin/boot.bin
 
 build/kernel.o: kernel/kernel.c
-	gcc -ffreestanding -c kernel/kernel.c -o build/kernel.o
+	gcc -ffreestanding -m32 -nostdlib -fno-pic -fno-pie -c kernel/kernel.c -o build/kernel.o
 
 bin/kernel.bin: build/kernel.o kernel/linker.ld
-	ld -o bin/kernel.bin -Ttext 0x1000 build/kernel.o --oformat binary
+	ld -m elf_i386 -T kernel/linker.ld -o bin/kernel.bin build/kernel.o
 
 floppy.img: bin/boot.bin bin/kernel.bin
 	dd if=/dev/zero of=floppy.img bs=512 count=2880
