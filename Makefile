@@ -6,8 +6,11 @@ bin/boot.bin: bootloader/boot.asm
 build/kernel.o: kernel/kernel.c
 	gcc -ffreestanding -m32 -nostdlib -fno-pic -fno-pie -c kernel/kernel.c -o build/kernel.o
 
-bin/kernel.bin: build/kernel.o kernel/linker.ld
-	ld -m elf_i386 -T kernel/linker.ld -o bin/kernel.bin build/kernel.o
+build/screen.o: kernel/screen.c
+	gcc -ffreestanding -m32 -nostdlib -fno-pic -fno-pie -c kernel/screen.c -o build/screen.o
+
+bin/kernel.bin: build/kernel.o build/screen.o kernel/linker.ld
+	ld -m elf_i386 -T kernel/linker.ld -o bin/kernel.bin build/kernel.o build/screen.o
 
 floppy.img: bin/boot.bin bin/kernel.bin
 	dd if=/dev/zero of=floppy.img bs=512 count=2880
