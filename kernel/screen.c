@@ -72,3 +72,13 @@ void print_int(uint16_t num, uint16_t digits, uint16_t color, uint16_t* vga) {
          copy /= 10;
      }
 }
+
+uint16_t number_of_digits(uint16_t n) {
+    int count = 0;
+
+    while(n > 0) {
+        count++;
+        n/=10;
+    }
+    return count;
+}

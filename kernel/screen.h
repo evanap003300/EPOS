@@ -7,5 +7,6 @@ void hello_world(int len, uint16_t color, uint16_t* vga);
 void print_char_at_pos(char c, int x, int y);
 void test_asm();
 void print_int(uint16_t num, uint16_t digits, uint16_t color, uint16_t* vga);
+uint16_t number_of_digits(uint16_t n);
 
 #endif

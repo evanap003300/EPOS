@@ -25,6 +25,10 @@ void main() {
     const uint16_t color = (GREEN << 8) | (BLACK << 12); // first 4 bytes: background, then foreground, then character
     volatile uint16_t* vga = (uint16_t*) VGA_MEMORY;
 
-    print_int(3, 1, color, vga);
-    print_char_at_pos('x', 40, 12); // print an x in the middle of the screen 
+    uint16_t num = 123;
+    uint16_t out = number_of_digits(num);
+
+    print_int(out, 1, color, vga);
+    // print_char('A');
+
 }
