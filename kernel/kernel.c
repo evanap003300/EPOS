@@ -18,10 +18,6 @@ void _start() {
 }
 
 void main() {
-    // you can return values, but global variables and including other functions from other files doesn't work yet.
-    // Have some manner of "CRT" (C run-time) code executes .data initialization to fix global variables
-    // Your bss or data segment is probably set up incorrectly becuase the gloabal variables don't work as intended. 
-
     const uint16_t color = (GREEN << 8) | (BLACK << 12); // first 4 bytes: background, then foreground, then character
     volatile uint16_t* vga = (uint16_t*) VGA_MEMORY;
 
