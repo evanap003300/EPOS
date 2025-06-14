@@ -1,4 +1,4 @@
-# EPOS — Evan's Primitive Operating System
+# EPOS — EP's Operating System
 
 🖥️ *A lightweight 16-bit operating system written from scratch in C and x86 Assembly, designed to boot in real mode and display a custom logo to VGA memory.*
 
