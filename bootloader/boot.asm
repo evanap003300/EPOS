@@ -25,7 +25,7 @@ read_disk:
     mov bx, KERNEL_SEGMENT          
 
     mov ah, 2       ; Read sectors
-    mov al, 2       ; Number of sectors to read 
+    mov al, 8       ; Number of sectors to read 
     mov ch, 0       ; Cylinder number
     mov dh, 0       ; Head number
     mov cl, 2       ; Sector number  
