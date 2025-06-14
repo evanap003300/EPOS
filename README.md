@@ -1,6 +1,6 @@
 # EPOS — EP's Operating System
 
-🖥️ *A lightweight 16-bit operating system written from scratch in C and x86 Assembly, designed to boot in real mode and display a custom logo to VGA memory.*
+*A lightweight 32-bit operating system written from scratch in C and x86 Assembly, designed to boot and display a custom logo to VGA memory.*
 
 ---
 
@@ -10,22 +10,19 @@
 
 This project was written **without an underlying OS**, **runtime**, or **standard library**, and was tested using `qemu` and raw assembly tools. All memory handling, text output, and program flow is managed explicitly via hardware-level interaction.
 
-This project serves both as:
-- a **learning tool** in systems programming and
-- a **demonstration** of control over the lowest layers of computing.
-
 ---
 
-## ✨ Features
-
-- 🧠 **16-bit real mode execution** (BIOS boot)
-- 🔢 **Custom bootloader** written in x86 Assembly
-- 🧱 **Flat binary kernel** compiled with no runtime
-- 💾 **Linked `.bin` image** combining bootloader and kernel
-- 📺 **VGA text-mode output** by writing directly to segment `0xB8000`
-- 🖼️ **Centered ASCII art logo** rendered at boot
-- 📜 **Multisegment memory model** setup (BSS, `.rodata`, `.data`)
-- ⚙️ Designed for x86 emulation via **QEMU**
+## Features
+- **GDT (Global Descriptor Table)** and jumping to protected mode
+- Linking C code to bootloader using a **bare-metal linker script**
+- **32-bit protected mode execution**
+- **Custom bootloader** written in x86 Assembly
+- **Flat binary kernel** compiled with no runtime
+- **Linked `.bin` image** combining bootloader and kernel
+- **VGA text-mode output** by writing directly to segment `0xB8000`
+- **ASCII art logo** rendered at boot
+- **Multisegment memory model** setup (BSS, `.rodata`, `.data`)
+- Designed for x86 emulation via **QEMU**
 
 ---
 
@@ -39,7 +36,7 @@ All text is rendered directly to VGA memory without libc. Since no BIOS interrup
 
 ---
 
-## 🧪 Build & Run
+## Build & Run
 
 You can test **EPOS** in an emulator like QEMU.
 
