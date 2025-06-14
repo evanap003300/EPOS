@@ -82,3 +82,138 @@ uint16_t number_of_digits(uint16_t n) {
     }
     return count;
 }
+
+void print_E(uint16_t color, uint16_t* vga) {
+    char line_1[] = " ______ ____   ___   ____";
+
+    for(int i = 0; i < 28; i++) {
+        vga[i] = line_1[i] | color;
+    }
+
+    for(int i = 1; i <= 5; i++) {
+        print_char_at_pos('|', 0, i);
+        print_char_at_pos('|', 7, i);
+    }
+    for(int i = 3; i <= 6; i++) {
+        print_char_at_pos('_', i, 1);
+    }
+    print_char_at_pos('|', 2, 2);
+
+    print_char_at_pos('_', 3, 2);
+    print_char_at_pos('_', 4, 2);
+
+    print_char_at_pos('|', 5, 3);
+
+    print_char_at_pos('_', 3, 3);
+    print_char_at_pos('_', 4, 3);
+
+    print_char_at_pos('|', 2, 4);
+
+    print_char_at_pos('_', 3, 4);
+    print_char_at_pos('_', 4, 4);
+    print_char_at_pos('_', 5, 4);
+    print_char_at_pos('_', 6, 4);
+
+    for(int i = 1; i <= 6; i++) {
+        print_char_at_pos('_', i, 5);
+    }
+}
+
+void print_P(uint16_t color, uint16_t* vga) {
+    print_char_at_pos('_', 8, 5);
+
+    print_char_at_pos('|', 9, 5);
+    print_char_at_pos('|', 9, 4);
+
+    print_char_at_pos('_', 10, 3);
+    print_char_at_pos('_', 11, 3);
+    print_char_at_pos('/', 12, 3);
+    
+    print_char_at_pos('|', 13, 2);
+
+    print_char_at_pos('\\', 12, 1);
+
+    print_char_at_pos('|', 9, 2);
+    print_char_at_pos(')', 11, 2);
+
+    print_char_at_pos('_', 10, 1);
+    print_char_at_pos('_', 10, 2);
+}
+
+void print_O(uint16_t color, uint16_t* vga) {
+    print_char_at_pos('/', 14, 1);
+    print_char_at_pos('|', 13, 3);
+    print_char_at_pos('|', 13, 4);
+    print_char_at_pos('\\', 14, 5);
+
+    print_char_at_pos('_', 15, 5);
+    print_char_at_pos('_', 16, 5);
+    print_char_at_pos('_', 17, 5);
+
+    print_char_at_pos('/', 18, 5);
+    print_char_at_pos('|', 19, 4);
+    print_char_at_pos('|', 19, 3);
+    print_char_at_pos('|', 19, 2);
+    print_char_at_pos('\\', 18, 1);
+
+    print_char_at_pos('_', 16, 4);
+    print_char_at_pos('|', 17, 4);
+    print_char_at_pos('|', 17, 3);
+    print_char_at_pos('|', 17, 2);
+    print_char_at_pos('_', 16, 1);
+    print_char_at_pos('|', 15, 2);
+    print_char_at_pos('|', 15, 3);
+    print_char_at_pos('|', 15, 4);
+}
+
+void print_S(uint16_t color, uint16_t* vga) {
+    print_char_at_pos('/', 20, 1);
+    print_char_at_pos('\\', 20, 2);
+
+    print_char_at_pos('_', 21, 2);
+    print_char_at_pos('_', 22, 2);
+    print_char_at_pos('_', 23, 2);
+
+    print_char_at_pos('\\', 24, 3);
+    print_char_at_pos('/', 24, 4);
+
+    print_char_at_pos('_', 20, 4);
+    print_char_at_pos('_', 21, 4);
+    print_char_at_pos('_', 22, 4);
+    print_char_at_pos('_', 23, 4);
+    print_char_at_pos('|', 19, 5);
+
+    print_char_at_pos('_', 20, 5);
+    print_char_at_pos('_', 21, 5);
+    print_char_at_pos('_', 22, 5);
+    print_char_at_pos('_', 23, 5);
+    print_char_at_pos('_', 24, 5);
+    print_char_at_pos('/', 25, 5);
+
+    print_char_at_pos('|', 26, 4);
+    print_char_at_pos('\\', 26, 3);
+    //print_char_at_pos('|', 26, 2);
+    print_char_at_pos('\\', 26, 1);
+
+    print_char_at_pos('_', 22, 1);
+    print_char_at_pos('_', 23, 1);
+    print_char_at_pos('_', 24, 1);
+    print_char_at_pos('_', 25, 1);
+}
+
+void print_intro(uint16_t color, uint16_t* vga) {
+    char version[] = "EPOS v0.1";
+
+    for (int i = 0; i < 10; i++) {
+        print_char_at_pos(version[i], i, 7);
+    }
+}
+
+void print_logo(uint16_t color, uint16_t* vga) {
+    print_E(color, vga);
+    print_P(color, vga);
+    print_O(color, vga);
+    print_S(color, vga);
+
+    print_intro(color, vga);
+}
