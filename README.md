@@ -1,1 +1,1 @@
-![EVOS Logo](qemu-boot.png)
+![EPOS Logo](qemu-boot.png)
