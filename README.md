@@ -1,1 +1,1 @@
-Hello world this is the os 
+![EVOS Logo](qemu-boot.png)
