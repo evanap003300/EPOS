@@ -1,11 +1,11 @@
 ; ----------------------------------
-; Description: Bootloader for JerkOS
+; Description: Bootloader for EPOS
 ; Author: Evan Phillips
-; Last Updated: 04/13/2025
+; Last Updated: 10/03/2025
 ; ----------------------------------
 
 [org 0x7C00]
-KERNEL_SEGMENT equ 0x1000
+KERNEL_SEGMENT equ 0x10000
 
     ; Set up stack
     mov bp, 0x9000

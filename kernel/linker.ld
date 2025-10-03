@@ -1,9 +1,9 @@
 ENTRY(_start)
 OUTPUT_FORMAT(binary)
 
-SECTIONS { 
-    /* Place the code at 1MB */
-    . = 1M;
+SECTIONS {
+    /* Place the code at 64KB */
+    . = 0x10000;
 
     .text : {
         *(.text*)  /* Place all .text sections here (code) */
