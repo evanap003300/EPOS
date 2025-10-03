@@ -5,7 +5,7 @@
 ; ----------------------------------
 
 [org 0x7C00]
-KERNEL_SEGMENT equ 0x10000
+KERNEL_SEGMENT equ 0x1000
 
     ; Set up stack
     mov bp, 0x9000

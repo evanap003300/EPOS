@@ -3,7 +3,7 @@ OUTPUT_FORMAT(binary)
 
 SECTIONS {
     /* Place the code at 64KB */
-    . = 0x10000;
+    . = 1M;
 
     .text : {
         *(.text*)  /* Place all .text sections here (code) */
